@@ -40,7 +40,7 @@
         WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核通过' ORDER BY id
         limit #{toPageNo}, #{pageSize}
     </select>
-    
+
     <select id="reservationNoPassCount" resultType="int">
         SELECT count(*) FROM reservation a WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核未通过' ORDER BY date DESC
     </select>
@@ -61,7 +61,7 @@
     <update id="reviewReservation" parameterType="int">
         UPDATE reservation SET mark='审核通过' WHERE id=#{id}
     </update>
-    
+
      <update id="rejectReservation" parameterType="int">
         UPDATE reservation SET mark='审核未通过' WHERE id=#{id}
     </update>

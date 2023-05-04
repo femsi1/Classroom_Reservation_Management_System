@@ -17,7 +17,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * Created by Admiral on 2018/1/20.
+ */
 @Controller
 @RequestMapping("/ordinary")
 public class OrdinaryController {
@@ -132,31 +134,6 @@ public class OrdinaryController {
 	}
 
 	//查询接下来的15天内所有已被预约的教室记录是否冲突
-// // 1. 获取待预约的教室信息以及预约时间段
-// String roomId = request.getParameter("roomId");
-// String startTime = request.getParameter("startTime");
-// String endTime = request.getParameter("endTime");
-// long startTimestamp = Timestamp.valueOf(startTime).getTime();
-// long endTimestamp = Timestamp.valueOf(endTime).getTime();
-
-// // 2. 查询数据库中已有的预约记录
-// List<Reservation> reservations = reservationService.getAllReservations();
-// for (Reservation r : reservations) {
-//     // 3. 判断待预约时间段是否与当前已有预约记录的时间段存在重叠
-//     if (roomId.equals(r.getRoomId()) && startTimestamp < r.getEndTimestamp() && endTimestamp > r.getStartTimestamp()) {
-//         // 发现冲突，需要进行处理
-//         return "error";
-//     }
-// }
-
-// // 4. 如果没有发现冲突，将待预约记录插入到数据库中
-// Reservation reservation = new Reservation();
-// reservation.setRoomId(roomId);
-// reservation.setStartTime(startTime);
-// reservation.setEndTime(endTime);
-// reservationService.addReservation(reservation);
-// return "success";
-
 	@RequestMapping("/reserveRoom")
 	public String findAllReservationTime(Model model, Integer page) throws Exception {
 		List<ReservationVo> list = null;
@@ -204,19 +181,6 @@ public class OrdinaryController {
 
 		return "redirect:/ordinary/showRecord";
 	}
-
-//请求预约记录，使得其他申请时间段不能包含已经预约过的时间段，比如说a同学预约了教室a 3月14日的 9:00:00到10:00:00 同学b的预约时间就不包含a同学的预约过的时间段
-//哪里有问题
-
-
-
-	// @RequestMapping("/reserveRoom")
-	// public String queryByTime(String roomName, String date, String time, Model model) throws Exception {
-	// 	List<ReservationVo> list = reservationService.queryByTime(roomName, date, time);
-	// 	model.addAttribute("recordList", list);
-	// 	return "/ordinary/reserveRoom";
-	// }
-
 
 
 }
