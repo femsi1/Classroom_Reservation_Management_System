@@ -34,6 +34,7 @@ public class AdminController {
 	public String showRoom(Model model, Integer page) throws Exception {
 
 		List<Room> list = null;
+
 		//页码对象
 		PagingVO pagingVO = new PagingVO();
 		//设置总页数
