@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>个人信息修改</title>
+<title>Personal information modification</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 引入bootstrap -->
