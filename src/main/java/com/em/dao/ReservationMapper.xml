@@ -3,81 +3,81 @@
 
 <mapper namespace="com.em.dao.ReservationMapper">
     <select id="reservationCount" resultType="int">
-        SELECT count(*) FROM reservation a WHERE a.mark='待审核'
+        SELECT count(*) FROM reservation a WHERE a.mark='waitlist'
     </select>
 
     <select id="reserveCount" resultType="int">
-        SELECT count(*) FROM reservation a WHERE mark!='取消申请'
+        SELECT count(*) FROM reservation a WHERE mark!='canceled'
     </select>
 
     <select id="findByPaging" parameterType="com.em.domain.PagingVO" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name` ,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
-        WHERE a.mark='待审核' ORDER BY id
-        limit #{toPageNo}, #{pageSize}
+                                                                                                                 LEFT JOIN room b on a.room_id=b.id
+        WHERE a.mark='waitlist' ORDER BY id
+            limit #{toPageNo}, #{pageSize}
     </select>
 
     <select id="findAllByPaging" parameterType="com.em.domain.PagingVO" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name` ,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
-        WHERE mark!='取消申请' ORDER BY date DESC
-        limit #{toPageNo}, #{pageSize}
+                                                                                                                 LEFT JOIN room b on a.room_id=b.id
+        WHERE mark!='canceled' ORDER BY date DESC
+            limit #{toPageNo}, #{pageSize}
     </select>
 
     <select id="findByName" parameterType="string" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name`,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
-        WHERE a.mark='待审核' AND a.user LIKE '%${value}%' ORDER BY id
+                                                                                                                LEFT JOIN room b on a.room_id=b.id
+        WHERE a.mark='waitlist' AND a.user LIKE '%${value}%' ORDER BY id
     </select>
 
     <select id="reservationPassCount" resultType="int">
-        SELECT count(*) FROM reservation a WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核通过' ORDER BY date DESC
+        SELECT count(*) FROM reservation a WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='successed' ORDER BY date DESC
     </select>
 
     <select id="findRecord" parameterType="com.em.domain.PagingVO" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name` ,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
-        WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核通过' ORDER BY id
-        limit #{toPageNo}, #{pageSize}
+                                                                                                                 LEFT JOIN room b on a.room_id=b.id
+        WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='successed' ORDER BY id
+            limit #{toPageNo}, #{pageSize}
     </select>
 
     <select id="reservationNoPassCount" resultType="int">
-        SELECT count(*) FROM reservation a WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核未通过' ORDER BY date DESC
+        SELECT count(*) FROM reservation a WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='rejected' ORDER BY date DESC
     </select>
 
     <select id="findRejectRecord" parameterType="com.em.domain.PagingVO" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name` ,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
-        WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='审核未通过' ORDER BY id
-        limit #{toPageNo}, #{pageSize}
+                                                                                                                 LEFT JOIN room b on a.room_id=b.id
+        WHERE date BETWEEN CURDATE()-30 AND CURDATE() AND a.mark='rejected' ORDER BY id
+            limit #{toPageNo}, #{pageSize}
     </select>
 
     <select id="queryByUser" parameterType="string" resultType="com.em.domain.ReservationVo">
         SELECT a.id,b.`name` ,a.date,a.begintime,a.endtime,a.`user`,a.mobile,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b on a.room_id=b.id
+                                                                                                                 LEFT JOIN room b on a.room_id=b.id
         WHERE a.user LIKE '%${value}%' ORDER BY date DESC
     </select>
 
     <update id="reviewReservation" parameterType="int">
-        UPDATE reservation SET mark='审核通过' WHERE id=#{id}
+        UPDATE reservation SET mark='successed' WHERE id=#{id}
     </update>
 
-     <update id="rejectReservation" parameterType="int">
-        UPDATE reservation SET mark='审核未通过' WHERE id=#{id}
+    <update id="rejectReservation" parameterType="int">
+        UPDATE reservation SET mark='rejected' WHERE id=#{id}
     </update>
 
     <insert id="addReservation" parameterType="com.em.domain.ReservationCustom">
         INSERT INTO reservation(user,username,reason,mobile,date,begintime,endtime,mark,room_id)
-        SELECT #{user},#{username},#{reason},#{mobile},#{date},#{beginTime},#{endTime},'待审核',id FROM room WHERE name=#{name}
+        SELECT #{user},#{username},#{reason},#{mobile},#{date},#{beginTime},#{endTime},'waitlist',id FROM room WHERE name=#{name}
     </insert>
 
     <select id="findByUser" parameterType="string" resultType="com.em.domain.ReservationCustom">
         SELECT a.id,b.name,a.user,a.date,a.begintime,a.endtime,a.mark,a.username,a.reason FROM reservation a
-        LEFT JOIN room b ON a.room_id=b.id
-        WHERE a.date > CURDATE()-15  AND a.mark='待审核' AND a.user=#{value} ORDER BY a.date DESC
+                                                                                                   LEFT JOIN room b ON a.room_id=b.id
+        WHERE a.date > CURDATE()-15  AND a.mark='waitlist' AND a.user=#{value} ORDER BY a.date DESC
     </select>
 
-    <update id="cancelApplication" parameterType="int">
-        UPDATE reservation SET mark='取消申请' where id=#{id}
+    <update id="canceledApplication" parameterType="int">
+        UPDATE reservation SET mark='canceled' where id=#{id}
     </update>
 </mapper>

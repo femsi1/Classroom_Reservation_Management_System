@@ -124,7 +124,7 @@
     </c:if>
 
     function confirmd() {
-        var msg = "您真的确定要删除吗？！";
+        var msg = "Are you sure you want to delete it? !";
         if (confirm(msg) == true) {
             return true;
         } else {
@@ -142,19 +142,19 @@ function check(){
 	var password = document.getElementById("password").value;
 	var repassword = document.getElementById("repassword").value;
 	if(!username){
-		alert("请输入用户名！");
+		alert("Please enter user name!");
 		return false;
 	}
 	if(!password){
-		alert("请输入密码！");
+		alert("Please enter your password!");
 		return false;
 	}
 	if(!repassword){
-		alert("请重复输入密码！");
+		alert("Please repeat your password!");
 		return false;
 	}
 	if(password!=repassword){
-		alert("两次密码输入不确！");
+		alert("Incorrect password input twice!");
 		return false;
 	}
 	return true;

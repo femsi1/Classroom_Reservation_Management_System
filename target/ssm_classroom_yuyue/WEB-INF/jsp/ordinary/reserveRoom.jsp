@@ -221,7 +221,7 @@
     </c:if>
 
     function confirmd() {
-        var msg = "您真的确定要删除吗？！";
+        var msg = "Are you sure you want to delete it? !";
         if (confirm(msg) == true) {
             return true;
         } else {

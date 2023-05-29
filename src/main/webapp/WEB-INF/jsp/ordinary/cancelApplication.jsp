@@ -71,7 +71,7 @@
 									<td>${item.reason}</td>
 									<td>${item.mark}</td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/ordinary/cancelApply?id=${item.id}'">取消申请</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/ordinary/cancelApply?id=${item.id}'">cancel</button>
 									</td>
 								</tr>
 							</c:forEach>

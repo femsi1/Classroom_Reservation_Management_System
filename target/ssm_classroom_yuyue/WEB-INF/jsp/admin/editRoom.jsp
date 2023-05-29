@@ -24,7 +24,7 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 style="text-align: center;">Modify classroom information</h1>
+					    	<h1 style="text-align: center;">Modify classroom</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">

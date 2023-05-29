@@ -30,7 +30,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<h1 class="col-md-5">Classroom information management</h1>
+							<h1 class="col-md-5">Manage Classroom</h1>
 							<form class="bs-example bs-example-form col-md-5" role="form"
 								style="margin: 20px 0 10px 0;"
 								action="${pageContext.request.contextPath}/admin/queryRoom"
@@ -43,7 +43,7 @@
 							</form>
 							<button class="btn btn-default col-md-2" style="margin-top: 20px"
 								onClick="location.href='${pageContext.request.contextPath}/admin/addRoom'">
-								Add classroom information
+								Add classroom
 								<sapn class="glyphicon glyphicon-plus" />
 							</button>
 
@@ -99,7 +99,7 @@
 											href="${pageContext.request.contextPath}/admin/showRoom?page=${pagingVO.curentPageNo+4}">${pagingVO.curentPageNo+4}</a></li>
 									</c:if>
 									<li><a
-										href="${pageContext.request.contextPath}/admin/showRoom?page=${pagingVO.totalCount}">The last page&raquo;</a></li>
+										href="${pageContext.request.contextPath}/admin/showRoom?page=${pagingVO.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>

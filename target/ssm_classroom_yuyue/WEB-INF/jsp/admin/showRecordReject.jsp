@@ -96,7 +96,7 @@
 											href="${pageContext.request.contextPath}/admin/showRecordReject?page=${pagingVo.curentPageNo+4}">${pagingVo.curentPageNo+4}</a></li>
 									</c:if>
 									<li><a
-										href="${pageContext.request.contextPath}/admin/showRecordReject?page=${pagingVo.totalCount}">The last page&raquo;</a></li>
+										href="${pageContext.request.contextPath}/admin/showRecordReject?page=${pagingVo.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>
@@ -126,7 +126,7 @@
         </c:if>
 
         function confirmd() {
-            var msg = "您真的确定要删除吗？！";
+            var msg = "Are you sure you want to delete it? !";
             if (confirm(msg)==true){
                 return true;
             }else{

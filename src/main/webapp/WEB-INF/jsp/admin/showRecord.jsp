@@ -77,7 +77,7 @@
 							<nav style="text-align: center">
 								<ul class="pagination">
 									<li><a
-										href="${pageContext.request.contextPath}/admin/showRecord?page=${pagingVo.upPageNo}">&laquo;上一页</a></li>
+										href="${pageContext.request.contextPath}/admin/showRecord?page=${pagingVo.upPageNo}">&laquo;Previous page</a></li>
 									<li class="active"><a href="">${pagingVo.curentPageNo}</a></li>
 									<c:if test="${pagingVo.curentPageNo+1 <= pagingVo.totalCount}">
 										<li><a
@@ -96,7 +96,7 @@
 											href="${pageContext.request.contextPath}/admin/showRecord?page=${pagingVo.curentPageNo+4}">${pagingVo.curentPageNo+4}</a></li>
 									</c:if>
 									<li><a
-										href="${pageContext.request.contextPath}/admin/showRecord?page=${pagingVo.totalCount}">最后一页&raquo;</a></li>
+										href="${pageContext.request.contextPath}/admin/showRecord?page=${pagingVo.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>

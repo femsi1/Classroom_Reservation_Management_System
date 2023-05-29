@@ -32,7 +32,7 @@
 							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="${pageContext.request.contextPath}/ordinary/queryByUser" id="form1" method="post">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="Please enter the borrower" name="findByName">
-									<span class="input-group-addon btn" onclick="document.getElementById('form1').submit" id="sub">搜索</span>
+									<span class="input-group-addon btn" onclick="document.getElementById('form1').submit" id="sub">Search</span>
 								</div>
 							</form>
 						</div>
@@ -40,15 +40,15 @@
 				    <table class="table table-bordered">
 					        <thead>
 					            <tr>
-									<th>Reservation number</th>
-									<th>classroom</th>
-									<th>Date of borrowing</th>
-									<th>Start time</th>
-									<th>End time</th>
-									<th>borrower</th>
-									<th>borrower's real name</th>
-									<th>Reason for borrowing</th>
-									<th>state</th>
+									<th>id</th>
+									<th>classname</th>
+									<th>account</th>
+									<th>username</th>
+									<th>reason</th>
+									<th>date</th>
+									<th>beginTime</th>
+									<th>endTime</th>
+									<th>statu</th>
 					            </tr>
 					        </thead>
 					        <tbody>
@@ -72,7 +72,7 @@
 						<c:if test="${pagingVo != null}">
 							<nav style="text-align: center">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.upPageNo}">&laquo;上一页</a></li>
+									<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.upPageNo}">&laquo;Precious page</a></li>
 									<li class="active"><a href="">${pagingVo.curentPageNo}</a></li>
 									<c:if test="${pagingVo.curentPageNo+1 <= pagingVo.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.curentPageNo+1}">${pagingVo.curentPageNo+1}</a></li>
@@ -86,7 +86,7 @@
 									<c:if test="${pagingVo.curentPageNo+4 <= pagingVo.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.curentPageNo+4}">${pagingVo.curentPageNo+4}</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.totalCount}">最后一页&raquo;</a></li>
+									<li><a href="${pageContext.request.contextPath}/ordinary/showRecord?page=${pagingVo.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>
@@ -116,7 +116,7 @@
         </c:if>
 
         function confirmd() {
-            var msg = "您真的确定要删除吗？！";
+            var msg = "Are you sure you want to delete it? !";
             if (confirm(msg)==true){
                 return true;
             }else{

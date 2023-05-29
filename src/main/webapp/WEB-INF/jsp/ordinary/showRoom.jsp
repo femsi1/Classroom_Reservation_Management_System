@@ -60,7 +60,7 @@
 						<c:if test="${pagingVO != null}">
 							<nav style="text-align: center">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.upPageNo}">&laquo;上一页</a></li>
+									<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.upPageNo}">&laquo;Previous page</a></li>
 									<li class="active"><a href="">${pagingVO.curentPageNo}</a></li>
 									<c:if test="${pagingVO.curentPageNo+1 <= pagingVO.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.curentPageNo+1}">${pagingVO.curentPageNo+1}</a></li>
@@ -74,7 +74,7 @@
 									<c:if test="${pagingVO.curentPageNo+4 <= pagingVO.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.curentPageNo+4}">${pagingVO.curentPageNo+4}</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.totalCount}">最后一页&raquo;</a></li>
+									<li><a href="${pageContext.request.contextPath}/ordinary/showRoom?page=${pagingVO.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>
@@ -105,9 +105,9 @@
         </c:if>
 
         function removeRoom(id) {
-			if(confirm('确实要删除该客户吗?')) {
+			if(confirm('Are you sure you want to delete this customer?')) {
 				$.post("${pageContext.request.contextPath}/ordinary/removeRoom",{"id":id},function(data){
-					alert("客户删除更新成功！");
+					alert("Customer delete update successfully!");
 					window.location.reload();
 				});
 			}

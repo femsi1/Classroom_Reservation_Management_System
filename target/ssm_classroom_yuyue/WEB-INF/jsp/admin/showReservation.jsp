@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Appointment audit management</title>
+	<title>Review reservation request</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- 引入bootstrap -->
@@ -73,8 +73,8 @@
 									<td>${item.mobile}</td>
 									<td>${item.mark}</td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/admin/reviewReservation?id=${item.id}'">同意申请</button>
-										<button class="btn btn-danger btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/admin/rejectReservation?id=${item.id}'">拒绝申请</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/admin/reviewReservation?id=${item.id}'">agree</button>
+										<button class="btn btn-danger btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/admin/rejectReservation?id=${item.id}'">reject</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -84,7 +84,7 @@
 						<c:if test="${pagingVO != null}">
 							<nav style="text-align: center">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.upPageNo}">&laquo;上一页</a></li>
+									<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.upPageNo}">&laquo;Previous page</a></li>
 									<li class="active"><a href="">${pagingVO.curentPageNo}</a></li>
 									<c:if test="${pagingVO.curentPageNo+1 <= pagingVO.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.curentPageNo+1}">${pagingVO.curentPageNo+1}</a></li>
@@ -98,7 +98,7 @@
 									<c:if test="${pagingVO.curentPageNo+4 <= pagingVO.totalCount}">
 										<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.curentPageNo+4}">${pagingVO.curentPageNo+4}</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.totalCount}">最后一页&raquo;</a></li>
+									<li><a href="${pageContext.request.contextPath}/admin/showReservation?page=${pagingVO.totalCount}">Last page&raquo;</a></li>
 								</ul>
 							</nav>
 						</c:if>
@@ -128,6 +128,7 @@
         </c:if>
 
         function confirmd() {
+            var msg = "Are you sure you want to delete it？！";
             var msg = "Are you sure you want to delete it？！";
             if (confirm(msg)==true){
                 return true;
