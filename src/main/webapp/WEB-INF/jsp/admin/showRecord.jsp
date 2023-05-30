@@ -30,7 +30,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<h1 class="col-md-5">Reservation history</h1>
+							<h1 class="col-md-5">Successful reservation history</h1>
 							<%--<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="${pageContext.request.contextPath}/admin/queryUser" id="form1" method="post">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="请输入借用人姓名" name="findByName">

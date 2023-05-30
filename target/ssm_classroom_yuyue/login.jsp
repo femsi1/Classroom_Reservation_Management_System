@@ -49,7 +49,7 @@
 				      <button type="submit" class="btn btn-default btn-info">Log in</button>
 				    </div>
 				  </div>
-					<a href="${pageContext.request.contextPath}/register">No account？</a>
+					<a href="${pageContext.request.contextPath}/register" style="color: whitesmoke ">No account？</a>
 				</form>
 			</div>
 			<div class="col-md-4"></div>

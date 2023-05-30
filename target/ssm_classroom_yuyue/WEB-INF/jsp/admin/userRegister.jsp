@@ -28,7 +28,7 @@
 				<div class="panel-body">
 					<form class="form-horizontal" name="newUser" id="newUser" role="form" action="${pageContext.request.contextPath}/admin/userRegister" id="editfrom" method="post" onsubmit="return check()">
 						<div class="form-group">
-							<label for="id" class="col-sm-2 control-label">User (non-administrator)</label>
+							<label for="id" class="col-sm-2 control-label">Student (non-administrator)</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="id" id="id" placeholder="Please enter the user name">
 							</div>

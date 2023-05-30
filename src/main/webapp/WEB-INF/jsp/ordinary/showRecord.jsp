@@ -28,7 +28,7 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 class="col-md-5">Appointment record inquiry</h1>
+					    	<h1 class="col-md-5">Your reservation history</h1>
 							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="${pageContext.request.contextPath}/ordinary/queryByUser" id="form1" method="post">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="Please enter the borrower" name="findByName">
